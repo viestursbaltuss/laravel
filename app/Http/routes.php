@@ -19,6 +19,7 @@ Route::get('sadala3', function () {
 
 Route::get('/', 'HomeController@index');
 
+
 Route::get('about','PagesController@home');
 Route::get('control', 'control@index');
 

@@ -25,8 +25,11 @@ class HomeController extends Controller
     public function index()
     {
         //(\DB::enableQueryLog());
-        $books = Book::with('bookAuthor')->limit(100)->get();
+        $books = Book::with('bookAuthor')
+            ->orderBy('id', 'asc')
+            ->paginate(20);
         //var_dump(\DB::getQueryLog());
         return view('welcome')->with('books', $books);
     }
 }
+

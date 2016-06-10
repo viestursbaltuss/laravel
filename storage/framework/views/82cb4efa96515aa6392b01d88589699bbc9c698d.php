@@ -14,7 +14,7 @@
       width:50px;
     }
 .modal-body{
-     word-wrap: break-word; }
+    word-wrap: break-word; }
   .dropdown{
     display:inline;
   }
@@ -39,29 +39,7 @@
 
   </div>
 </nav>
-<!-- <nav class="navbar navbar-dark bg-primary">
-<div class="container-fluid">
-<button class="navbar-toggler hidden-md-up pull-right" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
-☰
-</button>
-<a class="navbar-brand" href="#">Navbar sm</a>
-<div class="collapse navbar-toggleable-xs" id="collapsingNavbar2">
-<ul class="nav navbar-nav">
-<li class="nav-item">
-<a class="nav-link" href="#">Link</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="#">Link</a>
-</li>
-</ul>
-<ul class="nav navbar-nav pull-xs-right">
-<li class="nav-item">
-<a class="nav-link" href="#">About</a>
-</li>
-</ul>
-</div>
-</div>
-</nav> -->
+
 
  <?php echo $__env->yieldContent('content'); ?>
 
