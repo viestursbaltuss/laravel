@@ -36,8 +36,6 @@ class HomeController extends Controller
         //(\DB::enableQueryLog());
           //var_dump(\DB::getQueryLog());
         $genre = $request->input('genre');
-
-        $table_only =$request->input('table_only');
         $query = Book::with('bookAuthor');
         if ($genre ) {
             $query->where('genre', $genre);

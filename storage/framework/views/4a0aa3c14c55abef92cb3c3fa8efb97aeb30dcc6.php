@@ -51,10 +51,8 @@
 
       </tr> 
     <?php endforeach; ?>
-  <tr>
-  <td>
-  <center><?php echo $books->render(); ?></center>
-  </td>
-  </tr>
+
 </tbody>
+
 </table>
+  <center><?php echo $books->render(); ?></center>

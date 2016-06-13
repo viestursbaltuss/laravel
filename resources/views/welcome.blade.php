@@ -51,10 +51,8 @@
 
       </tr> 
     @endforeach
-  <tr>
-  <td>
-  <center>{!! $books->render() !!}</center>
-  </td>
-  </tr>
+
 </tbody>
+
 </table>
+  <center>{!! $books->render() !!}</center>
