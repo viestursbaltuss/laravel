@@ -27,22 +27,29 @@ class HomeController extends Controller
     public function index(Request $request)
     {
 
+        return view('layout');
+    }
+
+    public function getList(Request $request)
+    {
+
         //(\DB::enableQueryLog());
           //var_dump(\DB::getQueryLog());
         $genre = $request->input('genre');
+
         $table_only =$request->input('table_only');
         $query = Book::with('bookAuthor');
         if ($genre ) {
             $query->where('genre', $genre);
+
         }
 
-
-        $books = $query->orderBy('id', 'asc')->paginate(30);
-      
+        $books = $query
+                    ->orderBy('id', 'asc')
+                   ->paginate(15);
         return view('welcome')
+        ->with('query',$query)
         ->with('genre', $genre)
-        ->with('table_only',$table_only)
         ->with('books', $books);
     }
-
 }

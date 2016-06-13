@@ -1,10 +1,3 @@
-<?php if($table_only): ?>
-
-
- <?php echo $__env->yieldContent('content'); ?>
-
-<?php else: ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -42,13 +35,14 @@ float:left;
 
 </style>
 <body>
- <?php echo $__env->yieldContent('content'); ?>
-
-</body>
-
+<div class="form-group">
+<input type="text" class="form-control" id="genre1"> <input type="button" id="search-btn">
+</div>
+<div class="table">
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="/js/main.js"></script>
-</html>
+</body>
 
-<?php endif; ?>
+</html>
