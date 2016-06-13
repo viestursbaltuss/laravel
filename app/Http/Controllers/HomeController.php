@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Models\Book;
+use Input;
 class HomeController extends Controller
 {
     /**
@@ -22,14 +23,26 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //(\DB::enableQueryLog());
-        $books = Book::with('bookAuthor')
-            ->orderBy('id', 'asc')
-            ->paginate(20);
-        //var_dump(\DB::getQueryLog());
-        return view('welcome')->with('books', $books);
-    }
-}
 
+    public function index(Request $request)
+    {
+
+        //(\DB::enableQueryLog());
+          //var_dump(\DB::getQueryLog());
+        $genre = $request->input('genre');
+        $table_only =$request->input('table_only');
+        $query = Book::with('bookAuthor');
+        if ($genre ) {
+            $query->where('genre', $genre);
+        }
+
+
+        $books = $query->orderBy('id', 'asc')->paginate(30);
+      
+        return view('welcome')
+        ->with('genre', $genre)
+        ->with('table_only',$table_only)
+        ->with('books', $books);
+    }
+
+}

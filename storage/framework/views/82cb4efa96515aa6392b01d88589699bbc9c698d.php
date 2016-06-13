@@ -1,3 +1,10 @@
+<?php if($table_only): ?>
+
+
+ <?php echo $__env->yieldContent('content'); ?>
+
+<?php else: ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -15,36 +22,33 @@
     }
 .modal-body{
     word-wrap: break-word; }
-  .dropdown{
-    display:inline;
-  }
+
+.form-group{
+  width: 150px;
+  height:30px;
+  padding:0;
+
+  margin: 0;
+  padding-left: 10px;
+   display:inline-block;}
+.form-control {
+width:100px;
+height:30px;
+float:left;
+
+
+}
+#search-btn { height:30px;display:inline-block; width:40px;float:right;padding:0px;margin:0px;  }
+
 </style>
 <body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-   <ul class="nav navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="/">Sadaļa1</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="sadala1">Sadaļa2</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="sadala2">Sadaļa3</a>
-    </li>
-    <!-- <li class="nav-item">
-      <a class="nav-link" href="sadala3">Sadaļa4</a>
-    </li> -->
-  </ul>
-
-  </div>
-</nav>
-
-
  <?php echo $__env->yieldContent('content'); ?>
 
-
 </body>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
 </html>
+
+<?php endif; ?>
