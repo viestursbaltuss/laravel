@@ -20,11 +20,12 @@
   width: 150px;
   height:30px;
   padding:0;
-
+ margin-left:20px;
   margin: 0;
   padding-left: 10px;
    display:inline-block;}
 .form-control {
+
 width:100px;
 height:30px;
 float:left;

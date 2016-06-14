@@ -18,10 +18,10 @@
         <td> <?php echo e($user->year1); ?></td>
         <td> <?php echo e($user->bookAuthor->name1 . ' ' . $user->bookAuthor->lastname); ?></td>
         <td>
-        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">About</button>
+        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?php echo e($user->id); ?>">About</button>
 
       <!-- Modal -->
-      <div id="myModal" class="modal fade" role="dialog">
+      <div id="<?php echo e($user->id); ?>" class="modal fade" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -31,9 +31,9 @@
             <div class="modal-body">
       <!-- ABOUT INFO -->
 
-              <p>Name: <?php echo e($user->bookAuthor->name1); ?><br><br>
-              Lastname: <?php echo e($user->bookAuthor->lastname); ?><br><br>
-              Birth: <?php echo e($user->bookAuthor->birth); ?><br><br>
+              <p>Name: <?php echo e($user->name1); ?><br><br>
+              Lastname: <?php echo e($user->lastname); ?><br><br>
+              Birth: <?php echo e($user->birth); ?><br><br>
               Info: <?php echo e($user->about); ?>.
               </p>
 

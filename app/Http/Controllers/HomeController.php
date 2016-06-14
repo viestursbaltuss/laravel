@@ -6,6 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use Input;
+
 class HomeController extends Controller
 {
     /**
@@ -26,7 +27,6 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-
         return view('layout');
     }
 
@@ -35,19 +35,32 @@ class HomeController extends Controller
 
         //(\DB::enableQueryLog());
           //var_dump(\DB::getQueryLog());
-        $genre = $request->input('genre');
-        $query = Book::with('bookAuthor');
-        if ($genre ) {
-            $query->where('genre', $genre);
 
+        // $title = $request
+        // ->input('title');
+        $term = $request
+        ->input('term');
+        // \DB::enableQueryLog();
+
+        $query = Book::join('authors as a', 'a.id', '=', 'books.author_id');
+        if ($term) { 
+            $term = strtolower($term);
+            $query->whereRaw('lower(title) like ?', ['%' . $term .'%'])
+            ->orwhereRaw('lower(genre) like ?', ['%' . $term .'%'])
+            ->orwhereRaw('lower(year1) like ?', ['%' . $term .'%'])
+            ->orwhereRaw('lower(about) like ?', ['%' . $term .'%'])
+            ->orwhereRaw('lower(a.name1) like ?', ['%' . $term .'%'])
+            ->orwhereRaw('lower(a.lastname) like ?', ['%' . $term .'%'])
+            ->orwhereRaw('lower(a.birth) like ?', ['%' . $term .'%']);
         }
-
         $books = $query
-                    ->orderBy('id', 'asc')
-                   ->paginate(15);
+        ->orderBy('books.id', 'asc')
+        ->paginate(15);
+        // var_dump(\DB::getQueryLog());
         return view('welcome')
         ->with('query',$query)
-        ->with('genre', $genre)
+        ->with('genre', $term)
         ->with('books', $books);
     }
 }
+
